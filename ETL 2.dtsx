@@ -11,8 +11,8 @@
   DTS:LocaleID="2058"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="41"
-  DTS:VersionGUID="{6CF051F3-62FB-4076-B117-80B2CA656B11}">
+  DTS:VersionBuild="44"
+  DTS:VersionGUID="{4565D2A6-641F-49C1-8E04-DD92DB6B032C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2426,13 +2426,11 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\Poblar Hec_Rentas\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of montoFinal]"
-                      dataType="numeric"
+                      dataType="cy"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       lineageId="Package\Poblar Hec_Rentas\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of montoFinal]"
                       name="Copy of montoFinal"
-                      precision="36"
-                      scale="6"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -3038,13 +3036,13 @@ where [refTable].[ID_Auto] = ?</property>
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">#{Package\Poblar Hec_Rentas\Monto.Outputs[Derived Column Output].Columns[Montos]} + #{Package\Poblar Hec_Rentas\iva.Outputs[Derived Column Output].Columns[iva]} - #{Package\Poblar Hec_Rentas\descuento-10.Outputs[Derived Column Output].Columns[descuento]}</property>
+                          name="Expression">#{Package\Poblar Hec_Rentas\Monto.Outputs[Derived Column Output].Columns[Montos]} - #{Package\Poblar Hec_Rentas\descuento-10.Outputs[Derived Column Output].Columns[descuento]} + #{Package\Poblar Hec_Rentas\iva.Outputs[Derived Column Output].Columns[iva]}</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">Montos + iva - descuento</property>
+                          name="FriendlyExpression">Montos - descuento + iva</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -3191,10 +3189,8 @@ where [refTable].[ID_Auto] = ?</property>
                       lineageId="Package\Poblar Hec_Rentas\Dias de renta.Outputs[Derived Column Output].Columns[Dias de Renta]" />
                     <inputColumn
                       refId="Package\Poblar Hec_Rentas\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of montoFinal]"
-                      cachedDataType="numeric"
+                      cachedDataType="cy"
                       cachedName="Copy of montoFinal"
-                      cachedPrecision="36"
-                      cachedScale="6"
                       externalMetadataColumnId="Package\Poblar Hec_Rentas\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Monto]"
                       lineageId="Package\Poblar Hec_Rentas\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of montoFinal]" />
                   </inputColumns>
@@ -3948,7 +3944,7 @@ where [refTable].[ID_Auto] = ?</property>
     design-time-name="Package\Poblar Dim_Cliente">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="99,42"
           Id="Package\Poblar Dim_Cliente\Sort"
@@ -3992,7 +3988,9 @@ where [refTable].[ID_Auto] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4026,7 +4024,9 @@ where [refTable].[ID_Auto] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -4286,7 +4286,7 @@ where [refTable].[ID_Auto] = ?</property>
         <NodeLayout
           Size="161,42"
           Id="Package\Poblar Hec_Rentas\Data Conversion"
-          TopLeft="350,283" />
+          TopLeft="349,283" />
         <NodeLayout
           Size="110,42"
           Id="Package\Poblar Hec_Rentas\Monto"
@@ -4371,26 +4371,26 @@ where [refTable].[ID_Auto] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-86,30"
+              EndConnector="-87,30"
               Start="0,0"
-              End="-78.5,30">
+              End="-79.5,30">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-39,0" />
+                    End="-39.5,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="-39,0"
-                    Point2="-43,0"
-                    Point3="-43,4" />
+                    Point1="-39.5,0"
+                    Point2="-43.5,0"
+                    Point3="-43.5,4" />
                   <mssgle:LineSegment
-                    End="-43,26" />
+                    End="-43.5,26" />
                   <mssgle:CubicBezierSegment
-                    Point1="-43,26"
-                    Point2="-43,30"
-                    Point3="-47,30" />
+                    Point1="-43.5,26"
+                    Point2="-43.5,30"
+                    Point3="-47.5,30" />
                   <mssgle:LineSegment
-                    End="-78.5,30" />
+                    End="-79.5,30" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4537,30 +4537,30 @@ where [refTable].[ID_Auto] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Poblar Hec_Rentas.Paths[Data Conversion Output]"
-          TopLeft="350,304">
+          TopLeft="349,304">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-91,40"
+              EndConnector="-90,40"
               Start="0,0"
-              End="-83.5,40">
+              End="-82.5,40">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-41.5,0" />
+                    End="-41,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="-41.5,0"
-                    Point2="-45.5,0"
-                    Point3="-45.5,4" />
+                    Point1="-41,0"
+                    Point2="-45,0"
+                    Point3="-45,4" />
                   <mssgle:LineSegment
-                    End="-45.5,36" />
+                    End="-45,36" />
                   <mssgle:CubicBezierSegment
-                    Point1="-45.5,36"
-                    Point2="-45.5,40"
-                    Point3="-49.5,40" />
+                    Point1="-45,36"
+                    Point2="-45,40"
+                    Point3="-49,40" />
                   <mssgle:LineSegment
-                    End="-83.5,40" />
+                    End="-82.5,40" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
